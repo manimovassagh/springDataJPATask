@@ -1,12 +1,11 @@
 package com.github.manimovassagh.springdata.Customer;
 
-import java.util.Optional;
-import java.util.function.BooleanSupplier;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
 import com.github.manimovassagh.springdata.customer.entities.Customer;
 import com.github.manimovassagh.springdata.customer.repos.CustomerRepository;
@@ -51,6 +50,7 @@ class CustomerDataApplicationTests {
 	}
 
 	@Test
+	@DirtiesContext
 	void deleteCustomer() {
 		repository.deleteById(1);
 		boolean empty = repository.findById(1).isEmpty();
