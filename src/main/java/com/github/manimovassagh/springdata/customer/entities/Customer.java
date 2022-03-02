@@ -6,8 +6,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Customer {
+	
 	@Id
-	private Long id;
+	private Integer id;
 	// i Know it is not need just want to practice
 	@Column(name = "name")
 	private String name;
@@ -19,17 +20,17 @@ public class Customer {
 
 	}
 
-	public Customer(Long id, String name, String email) {
+	public Customer(Integer id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
