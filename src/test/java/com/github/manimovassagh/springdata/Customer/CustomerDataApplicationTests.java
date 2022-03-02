@@ -1,6 +1,7 @@
 package com.github.manimovassagh.springdata.Customer;
 
 import java.util.Optional;
+import java.util.function.BooleanSupplier;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -48,12 +49,11 @@ class CustomerDataApplicationTests {
 		customer.setEmail("Morattab.sahar@gmail.com!");
 		repository.save(customer);
 	}
-	
+
 	@Test
 	void deleteCustomer() {
 		repository.deleteById(1);
-		Optional<Customer> findById = repository.findById(1);
-		Assertions.assertNull(findById);
-		
+		boolean empty = repository.findById(1).isEmpty();
+		Assertions.assertTrue(empty);
 	}
 }
