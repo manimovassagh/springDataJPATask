@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface CustomerRepository extends CrudRepository<Customer, Integer> {
     public List<Customer> findByName(String name); 
+    public List<Customer> findByNameOrEmail(String name , String Email); 
 }

@@ -35,7 +35,7 @@ class CustomerDataApplicationTests {
 
 	@Test
 	void getCustomerById() {
-		Customer customer = repository.findById(1).get();
+		Customer customer = repository.findById(2).get();
 		Assertions.assertEquals("Mani Movassagh", customer.getName());
 		Assertions.assertEquals("Mani.mgh@gmail.com", customer.getEmail());
 
@@ -64,6 +64,16 @@ class CustomerDataApplicationTests {
 		String name2 ="Sahar Morattab";
 		List<Customer> findByName2 = repository.findByName(name2);
 		Assertions.assertEquals("Sahar Morattab", findByName2.get(0).getName());
+		
+	}
+	
+	@Test
+	public void findCustomersByNameOrEmail(){
+		String email ="Mani.mgh@gmail.com";
+		List<Customer> findByNameOrEmail = repository.findByNameOrEmail("",email);
+		System.out.println(findByNameOrEmail);
+		Assertions.assertEquals("Mani Movassagh", findByNameOrEmail.get(0).getName());
+		
 		
 	}
 	
