@@ -1,5 +1,7 @@
 package com.github.manimovassagh.springdata.Customer;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,4 +55,17 @@ class CustomerDataApplicationTests {
 //		boolean empty = repository.findById(1).isEmpty();
 //		Assertions.assertTrue(empty);
 //	}
+	
+	@Test
+	public void findCustomersByName(){
+		String name ="Mani Movassagh";
+		List<Customer> findByName = repository.findByName(name);
+		Assertions.assertEquals("Mani Movassagh", findByName.get(0).getName());
+		String name2 ="Sahar Morattab";
+		List<Customer> findByName2 = repository.findByName(name2);
+		Assertions.assertEquals("Sahar Morattab", findByName2.get(0).getName());
+		
+	}
+	
+	
 }
