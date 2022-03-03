@@ -55,27 +55,25 @@ class CustomerDataApplicationTests {
 //		boolean empty = repository.findById(1).isEmpty();
 //		Assertions.assertTrue(empty);
 //	}
-	
+
 	@Test
-	public void findCustomersByName(){
-		String name ="Mani Movassagh";
+	public void findCustomersByName() {
+		String name = "Mani Movassagh";
 		List<Customer> findByName = repository.findByName(name);
 		Assertions.assertEquals("Mani Movassagh", findByName.get(0).getName());
-		String name2 ="Sahar Morattab";
+		String name2 = "Sahar Morattab";
 		List<Customer> findByName2 = repository.findByName(name2);
 		Assertions.assertEquals("Sahar Morattab", findByName2.get(0).getName());
-		
+
 	}
-	
+
 	@Test
-	public void findCustomersByNameOrEmail(){
-		String email ="Mani.mgh@gmail.com";
-		List<Customer> findByNameOrEmail = repository.findByNameOrEmail("",email);
-		System.out.println(findByNameOrEmail);
+	public void testFindCustomersByNameOrEmail() {
+		String email = "Mani.mgh@gmail.com";
+		List<Customer> findByNameOrEmail = repository.findByNameOrEmail("", email);
+		findByNameOrEmail.forEach(p -> System.out.println(p.getName()));
 		Assertions.assertEquals("Mani Movassagh", findByNameOrEmail.get(0).getName());
-		
-		
+
 	}
-	
-	
+
 }
